@@ -1,0 +1,77 @@
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import { motion, AnimatePresence } from "framer-motion";
+import ResumeHeader from "../components/ResumeHeader";
+
+const About = () => {
+  return (
+    <>
+      <StyledAboutPage>
+        <ResumeHeader></ResumeHeader>
+        <StyledFooterContainer>
+          <h3>Who am I?</h3>
+          <h4>I'm a web developer from Ajax, Ontario.</h4>
+          <h4>
+            I have a passion for creating web based applications from the ground
+            up.
+          </h4>
+          <h4>
+            I'm a fast learner who enjoys jumping into new technologies and
+            learning to use them to my advantage.
+          </h4>
+          <h4>
+            I specialize in web based solutions from design to deployment. I
+            create web applications that consume REST API's to produce fast
+            loading, responsive and modern looking applications.
+          </h4>
+        </StyledFooterContainer>
+      </StyledAboutPage>
+    </>
+  );
+};
+
+const StyledAboutPage = styled(motion.div)`
+  top: 10vh;
+  height: 80vh;
+  width: 100vw;
+  position: absolute;
+
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  grid-template-columns: 1fr 5fr 1fr;
+`;
+
+const StyledHeaderContainer = styled(motion.div)`
+  width: 100%;
+  height: 100%;
+  grid-row: 1/2;
+  grid-column: 2/3;
+  border-bottom: 1px solid white;
+
+  display: grid;
+  align-content: end;
+  row-gap: 1rem;
+  padding-bottom: 1rem;
+
+  h4 {
+    color: #cddddd;
+  }
+`;
+
+const StyledFooterContainer = styled(motion.div)`
+  width: 100%;
+  height: 100%;
+  grid-row: 2/3;
+  grid-column: 2/3;
+
+  display: grid;
+  align-content: start;
+  row-gap: 1rem;
+  padding-top: 1rem;
+
+  h4 {
+    color: #cddddd;
+  }
+`;
+
+export default About;

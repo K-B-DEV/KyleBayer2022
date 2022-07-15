@@ -12,79 +12,36 @@ import { Carousel } from "react-bootstrap";
 import defImg from "../images/default.jpg";
 
 const Home = () => {
-  function newImageUrl() {
-    var min = 1057;
-    var max = 1083;
-    var difference = max - min;
-    var randomNumber = Math.random() * difference;
-    randomNumber = Math.floor(randomNumber) + min;
-    setImgUrl1("https://picsum.photos/id/" + randomNumber + "/1000/400");
-    console.log("https://picsum.photos/id/" + randomNumber + "/1000/400");
-
-    randomNumber = randomNumber + 1;
-    setImgUrl2("https://picsum.photos/id/" + randomNumber + "/1000/400");
-    console.log("https://picsum.photos/id/" + randomNumber + "/1000/400");
-
-    randomNumber = randomNumber + 1;
-    setImgUrl3("https://picsum.photos/id/" + randomNumber + "/1000/400");
-    console.log("https://picsum.photos/id/" + randomNumber + "/1000/400");
-  }
-
-  const [imgUrl1, setImgUrl1] = useState("");
-  const [imgUrl2, setImgUrl2] = useState("");
-  const [imgUrl3, setImgUrl3] = useState("");
-  const [img1, setImg1] = useState();
-  const [img2, setImg2] = useState();
-  const [img3, setImg3] = useState();
-
-  const fetchImage1 = async () => {
-    const response = await fetch(imgUrl1);
-    const imageBlob = await response.blob();
-    const imageObjUrl = URL.createObjectURL(imageBlob);
-    setImg1(imageObjUrl);
-  };
-
-  const fetchImage2 = async () => {
-    const response = await fetch(imgUrl2);
-    const imageBlob = await response.blob();
-    const imageObjUrl = URL.createObjectURL(imageBlob);
-    setImg2(imageObjUrl);
-  };
-
-  const fetchImage3 = async () => {
-    const response = await fetch(imgUrl3);
-    const imageBlob = await response.blob();
-    const imageObjUrl = URL.createObjectURL(imageBlob);
-    setImg3(imageObjUrl);
-  };
-
-  useEffect(() => {
-    newImageUrl();
-    fetchImage1();
-    fetchImage2();
-    fetchImage3();
-  }, []);
-
   return (
     <>
       <StyledPageGrid>
         <StyledPageContainer>
           <h1>Kyle Bayer</h1>
           <h2>Professional Web Services</h2>
-          <h4>
-            (These background images are randomly selected using picsum.photos)
-          </h4>
+          {/* <h5>(images are randomly selected using picsum.photos)</h5> */}
         </StyledPageContainer>
         <StyledImageContainer>
           <Carousel className="carouselWidth">
             <Carousel.Item>
-              <img className="d-block w-100" src={img1} alt="First slide" />
+              <img
+                className="d-block w-100"
+                src="https://picsum.photos/1920/610?random"
+                alt="First slide"
+              />
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block w-100" src={img2} alt="Second slide" />
+              <img
+                className="d-block w-100"
+                src="https://picsum.photos/1920/611?random"
+                alt="Second slide"
+              />
             </Carousel.Item>
             <Carousel.Item>
-              <img className="d-block w-100" src={img3} alt="Third slide" />
+              <img
+                className="d-block w-100"
+                src="https://picsum.photos/1920/612?random"
+                alt="Third slide"
+              />
             </Carousel.Item>
           </Carousel>
         </StyledImageContainer>
@@ -126,17 +83,24 @@ const Home = () => {
 };
 
 const StyledPageGrid = styled(motion.div)`
-  height: 80vh;
-  max-height: 80vh;
+  height: 90vh;
+  max-height: 90vh;
   width: 100vw;
-  top: 10vh;
+  top: 5vh;
   left: 0;
   position: relative;
 
   display: grid;
-  grid-template-rows: 1fr 1.5fr;
+  grid-template-rows: auto;
   grid-template-columns: 1fr;
   overflow: hidden;
+
+  @media screen and (max-width: 800px) {
+    height: auto;
+    max-height: auto;
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
 `;
 const StyledPageContainer = styled(motion.div)`
   grid-row: 1/2;
@@ -152,6 +116,10 @@ const StyledPageContainer = styled(motion.div)`
   justify-items: center;
   overflow: hidden;
   pointer-events: none;
+
+  @media screen and (max-width: 800px) {
+    overflow: visible;
+  }
 `;
 
 const StyledCardsContainer = styled(motion.div)`
@@ -166,6 +134,15 @@ const StyledCardsContainer = styled(motion.div)`
 
   /* padding: 1rem 0rem 1rem 0rem; */
   overflow: hidden;
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    overflow: visible;
+    height: 110%;
+    row-gap: 1em;
+    padding: 1em 0em 1em 0em;
+  }
 `;
 
 const StyledCard = styled(motion.div)`
@@ -186,6 +163,10 @@ const StyledCard = styled(motion.div)`
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  @media screen and (max-width: 800px) {
+    height: 100%;
+  }
 `;
 const StyledCardPicute = styled(motion.div)`
   grid-row: 1/2;
@@ -206,6 +187,9 @@ const StyledCardContent = styled(motion.div)`
   h4 {
     text-align: center;
   }
+  /* h5 {
+    padding: 0em 1em 0em 1em !important;
+  } */
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 `;
@@ -226,7 +210,7 @@ const StyledImageContainer = styled(motion.div)`
 
   img {
     width: 100%;
-    height: 30vh;
+    height: 40vh;
     object-fit: cover;
     overflow: hidden;
   }

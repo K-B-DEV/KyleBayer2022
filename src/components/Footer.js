@@ -11,7 +11,7 @@ const Footer = () => {
 };
 
 const StyledFooterContainer = styled(motion.div)`
-  height: 10vh;
+  height: 5vh;
   width: 100vw;
   background-color: #051014;
   bottom: 0;
@@ -24,6 +24,10 @@ const StyledFooterContainer = styled(motion.div)`
   justify-items: center;
 
   z-index: 2;
+
+  h3 {
+    font-size: 20px;
+  }
 `;
 
 export default Footer;

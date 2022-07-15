@@ -23,14 +23,23 @@ const Contact = () => {
 };
 
 const StyledContactPage = styled(motion.div)`
-  top: 10vh;
-  height: 80vh;
+  top: 5vh;
+  height: 90vh;
+  max-height: 90vh;
   width: 100vw;
-  position: absolute;
+  left: 0;
+  position: relative;
 
   display: grid;
   grid-template-rows: 1fr 4fr;
   grid-template-columns: 1fr 5fr 1fr;
+
+  overflow: hidden;
+
+  @media screen and (max-width: 800px) {
+    grid-template-rows: auto;
+    height: auto;
+  }
 `;
 
 const StyledFooterContainer = styled(motion.div)`
@@ -52,6 +61,19 @@ const StyledFooterContainer = styled(motion.div)`
     font-size: 20rem;
     align-self: center;
     justify-self: center;
+  }
+
+  @media screen and (max-width: 1000px) {
+    grid-column: 1/4;
+
+    padding: 1em 1em 0em 1em;
+
+    svg {
+      color: white;
+      font-size: 15rem;
+      align-self: center;
+      justify-self: center;
+    }
   }
 `;
 

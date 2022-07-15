@@ -111,6 +111,35 @@ const Resume = () => {
         <StyledFooterContainer2>
           <h3>Experience</h3>
           <Accordion
+            expanded={expanded2 === "panel4"}
+            onChange={handleChange2("panel4")}
+          >
+            <AccordionSummary
+              aria-controls="panel3d-content"
+              id="panel3d-header"
+            >
+              <Typography>
+                Durham College - Full Time Student | 2016 - 2020
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                <ul>
+                  <li>
+                    I completed the{" "}
+                    <a
+                      href="https://durhamcollege.ca/programs/computer-programming-analyst-three-year"
+                      target="_blank"
+                    >
+                      <i>Computer programmer Analyst</i>
+                    </a>{" "}
+                    program with an overall GPA of 3.44.
+                  </li>
+                </ul>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion
             expanded={expanded2 === "panel1"}
             onChange={handleChange2("panel1")}
           >
@@ -212,26 +241,6 @@ const Resume = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion
-            expanded={expanded2 === "panel4"}
-            onChange={handleChange2("panel4")}
-          >
-            <AccordionSummary
-              aria-controls="panel3d-content"
-              id="panel3d-header"
-            >
-              <Typography>
-                Durham College - Full Time Student | 2016 - 2020
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>
-                <ul>
-                  <li>Computer programmer Analyst advanced diploma.</li>
-                </ul>
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
         </StyledFooterContainer2>
       </StyledAboutPage>
     </>
@@ -239,18 +248,25 @@ const Resume = () => {
 };
 
 const StyledAboutPage = styled(motion.div)`
-  top: 10vh;
-  height: 80vh;
-  max-height: 120vh;
+  top: 5vh;
+  left: 0;
+  height: 90vh;
+  max-height: 100%;
   overflow-y: auto;
   width: 100vw;
-  position: absolute;
+  position: relative;
 
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 1fr 5fr 1fr;
   padding-bottom: 1rem;
   padding-top: 1rem;
+
+  @media screen and (max-width: 800px) {
+    overflow-y: visible;
+    overflow-x: hidden;
+    padding-top: 0em;
+  }
 `;
 
 const StyledHeaderContainer = styled(motion.div)`
@@ -284,6 +300,12 @@ const StyledFooterContainer = styled(motion.div)`
   h4 {
     color: #cddddd;
   }
+
+  @media screen and (max-width: 1000px) {
+    grid-column: 1/4;
+
+    padding: 1em 1em 0em 1em;
+  }
 `;
 
 const StyledFooterContainer2 = styled(motion.div)`
@@ -299,6 +321,12 @@ const StyledFooterContainer2 = styled(motion.div)`
 
   h4 {
     color: #cddddd;
+  }
+
+  @media screen and (max-width: 1000px) {
+    grid-column: 1/4;
+
+    padding: 1em 1em 0em 1em;
   }
 `;
 

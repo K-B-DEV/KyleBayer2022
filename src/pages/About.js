@@ -31,30 +31,24 @@ const About = () => {
 };
 
 const StyledAboutPage = styled(motion.div)`
-  top: 10vh;
-  height: 80vh;
+  height: 90vh;
+  max-height: 90vh;
   width: 100vw;
-  position: absolute;
+  top: 5vh;
+  left: 0;
+  position: relative;
 
   display: grid;
   grid-template-rows: 1fr 4fr;
   grid-template-columns: 1fr 5fr 1fr;
-`;
 
-const StyledHeaderContainer = styled(motion.div)`
-  width: 100%;
-  height: 100%;
-  grid-row: 1/2;
-  grid-column: 2/3;
-  border-bottom: 1px solid white;
+  overflow: hidden;
 
-  display: grid;
-  align-content: end;
-  row-gap: 1rem;
-  padding-bottom: 1rem;
-
-  h4 {
-    color: #cddddd;
+  @media screen and (max-width: 800px) {
+    grid-template-rows: auto;
+    height: auto;
+    overflow-y: visible;
+    overflow-x: hidden;
   }
 `;
 
@@ -71,6 +65,19 @@ const StyledFooterContainer = styled(motion.div)`
 
   h4 {
     color: #cddddd;
+  }
+
+  @media screen and (max-width: 1000px) {
+    grid-column: 1/4;
+
+    padding: 1em 1em 0em 1em;
+  }
+
+  @media screen and (max-width: 800px) {
+    height: auto;
+    max-height: auto;
+    /* overflow-y: visible;
+    overflow-x: hidden; */
   }
 `;
 

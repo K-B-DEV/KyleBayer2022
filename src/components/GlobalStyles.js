@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
 
     body{
         background-color: #2E2F2F;
-        h2, h3, h4, h1, p{
+        h2, h3, h4, h5, h1, p{
             color: white;
             text-shadow: 1px 1px black;
         }
@@ -43,9 +43,12 @@ const GlobalStyles = createGlobalStyle`
         }
         a{
             color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
+            text-decoration: inherit; /* no underline */
         }
-
+        .css-4t3x6l-MuiPaper-root-MuiDrawer-paper{
+            background-color:#051014 !important;
+            color: white !important;
+        }
 
 
         

@@ -26,6 +26,19 @@ const StyledHeaderContainer = styled(motion.div)`
   h4 {
     color: #cddddd;
   }
+
+  @media screen and (max-width: 1000px) {
+    grid-column: 1/4;
+
+    /* padding: 0em 1em 0em 1em; */
+    width: 96%;
+    align-self: center;
+    justify-self: center;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding-top: 1em;
+  }
 `;
 
 export default ResumeHeader;

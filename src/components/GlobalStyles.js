@@ -49,8 +49,16 @@ const GlobalStyles = createGlobalStyle`
             background-color:#051014 !important;
             color: white !important;
         }
-
-
+        //mui button
+        .css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+            border: 1px solid white !important;
+        }
+        .css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+            color: white !important;
+        }
+        .css-1ptx2yq-MuiInputBase-root-MuiInput-root:after{
+            border-bottom: 2px solid white !important;
+        }
         
     }
 `;
